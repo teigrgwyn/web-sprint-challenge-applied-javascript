@@ -6,7 +6,6 @@ const Tabs = (topics) => {
   
   // assemble sub-divs
   topics.forEach(item => {
-    console.log(item);
     const element = document.createElement('div');
     element.classList.add("tab");
     element.textContent = item;
@@ -20,7 +19,6 @@ const tabsAppender = (selector) => {
   axios.get('https://lambda-times-api.herokuapp.com/topics')
     .then(res => {
       document.querySelector(selector).appendChild(Tabs(res.data.topics));
-      console.log(Object.values(res.data));
     })
     .catch(err => {
       console.log(err);

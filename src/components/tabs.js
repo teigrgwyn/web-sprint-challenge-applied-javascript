@@ -2,9 +2,11 @@ import axios from 'axios';
 
 const Tabs = (topics) => {
   const div = document.createElement('div');
+  div.classList.add("topics");
   
   // assemble sub-divs
   topics.forEach(item => {
+    console.log(item);
     const element = document.createElement('div');
     element.classList.add("tab");
     element.textContent = item;
@@ -15,10 +17,10 @@ const Tabs = (topics) => {
 }
 
 const tabsAppender = (selector) => {
-  // CSS displays elements vertically instead of horizontally - leaving it like so
   axios.get('https://lambda-times-api.herokuapp.com/topics')
     .then(res => {
-      document.querySelector(selector).appendChild(Tabs(res.data));
+      document.querySelector(selector).appendChild(Tabs(res.data.topics));
+      console.log(Object.values(res.data));
     })
     .catch(err => {
       console.log(err);

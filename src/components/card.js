@@ -67,7 +67,7 @@ const cardAppender = (selector) => {
       console.log(newArray);
       console.log(newArray2);
     })
-  
+   
     // .then(res => {
     //   const arrTopics = Object.keys(res.data.articles); // hack to get this to function correctly
     //   console.log(arrTopics);

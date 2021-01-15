@@ -1,22 +1,28 @@
+import axios from 'axios';
+
 const Tabs = (topics) => {
   const div = document.createElement('div');
-
+  
+  // assemble sub-divs
   topics.forEach(item => {
     const element = document.createElement('div');
     element.classList.add("tab");
     element.textContent = item;
     div.appendChild(element);
   });
+
+  return div;
 }
 
 const tabsAppender = (selector) => {
-  // TASK 4
-  // ---------------------
-  // Implement this function which takes a css selector as its only argument.
-  // It should obtain topics from this endpoint: `https://lambda-times-api.herokuapp.com/topics`
-  // Find the array of topics inside the response, and create the tabs using the Tabs component.
-  // Append the tabs to the element in the DOM that matches the selector passed to the function.
-  //
+  // CSS displays elements vertically instead of horizontally - leaving it like so
+  axios.get('https://lambda-times-api.herokuapp.com/topics')
+    .then(res => {
+      document.querySelector(selector).appendChild(Tabs(res.data));
+    })
+    .catch(err => {
+      console.log(err);
+    })
 }
 
 export { Tabs, tabsAppender }

@@ -28,7 +28,6 @@ const Card = (article) => {
   div4.appendChild(img);
   div3.appendChild(span);
 
-  console.log(div);
   return div;
 }
 

@@ -33,26 +33,12 @@ const Card = (article) => {
 
 const cardAppender = (selector) => {
   axios.get('https://lambda-times-api.herokuapp.com/articles')
-    .then(res => {
-      /*
-        - couldn't get this to work with recursion for the life of me
-        - if i could call res.data.articles.${topic}.forEach(), it'd be fine, but not sure how to do that
-      */
-      res.data.articles.bootstrap.forEach(article => {
-        document.querySelector(selector).appendChild(Card(article));
-      });
-      res.data.articles.javascript.forEach(article => {
-        document.querySelector(selector).appendChild(Card(article));
-      });
-      res.data.articles.jquery.forEach(article => {
-        document.querySelector(selector).appendChild(Card(article));
-      });
-      res.data.articles.node.forEach(article => {
-        document.querySelector(selector).appendChild(Card(article));
-      });
-      res.data.articles.technology.forEach(article => {
-        document.querySelector(selector).appendChild(Card(article));
-      });
+     .then(response => {
+      for (const key in response.data.articles) {
+        for (let i = 0; i < response.data.articles[key].length; i++) {
+          document.querySelector(selector).appendChild(Card(response.data.articles[key][i]));
+        }
+      }
     })
     .catch(err => {
       console.log(err);

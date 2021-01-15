@@ -41,8 +41,8 @@ Your must complete all the following steps:
 
 - [x] Step 0 is to link `src/index.js` to the `src/index.html` file using a script tag.
 - [x] Steps 1 and 2 are explained inside the `src/components/header.js` file.
-- [ ] Steps 3 and 4 are explained inside the `src/components/tabs.js` file.
-- [ ] Steps 5 and 6 are explained inside the `src/components/card.js` file.
+- [x] Steps 3 and 4 are explained inside the `src/components/tabs.js` file.
+- [x] Steps 5 and 6 are explained inside the `src/components/card.js` file.
 
 **Important Notes:**
 
@@ -75,7 +75,12 @@ There are two possible ways to submit this project to Canvas. Lambda Staff will 
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. What is the DOM?
+-> Document Object Model: Basically, the whole webpage site
 2. What is an event?
+-> an action that happens that is hookable
 3. What is an event listener?
+-> When an action happens and it's hooked, we can manipulate DOM, all because we setup a listener
 4. Why would we convert a NodeList into an Array?
+-> We can use array methods on arrays, but not NodeLists, which gives us more flexibility
 5. What is a component?
+-> Essentially, a small part of a webpage that is built and then added to the DOM altogether
